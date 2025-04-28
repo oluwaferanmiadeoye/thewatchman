@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  width: 98%;
+}
+
+/* Nav bar */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin: auto;
+  font-size: 12px;
+}
+
+nav ul.main-menu,
+nav ul.right-menu {
+  display: flex;
+  gap: 20px;
+}
+
+nav ul.main-menu li {
+  padding-bottom: 1px;
+}
+
+nav ul.main-menu li a {
+  padding: 5px 4px;
+  transition: background-color 0.3s ease;
+  font-family: "inter", sans-serif;
+  font-weight: 400;
+}
+
+nav ul.main-menu li a:hover,
+nav ul.right-menu li a:hover {
+  border-bottom: #c20000 2px solid;
+}
+
+/* Showcase */
+
+.showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  line-height: 1.9;
+  margin-top: -37px;
+}
+
+.showcase h2.scripture {
+  font-size: 2rem;
+  color: #000000;
+  text-align: center;
+  font-family: "poppins", sans-serif;
+  font-weight: 400;
+}
+
+.showcase h2.scripture span.watch {
+  color: #ffffff;
+  background-color: #c20000;
+  padding: 10px;
+}
+
+.showcase h2.scripture span.watch:hover {
+  background-color: #ffffff;
+  color: #c20000;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.showcase h4.text {
+  font-size: 1.2rem;
+  color: #000000;
+  text-align: center;
+  font-family: "poppins", sans-serif;
+  font-weight: 400;
+  margin-top: 10px;
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
