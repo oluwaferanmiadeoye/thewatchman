@@ -495,7 +495,7 @@ a.diff {
 .marquee .marquee-content {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 100s linear infinite;
+  animation: marquee 10s linear infinite;
   row-gap: 30px;
 }
 
@@ -516,10 +516,10 @@ a.diff {
 /* Marquee animation */
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(10%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-10%);
   }
 }
 
