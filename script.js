@@ -1,4 +1,4 @@
-// Scroll observer for the nav bar
+
 const nav = document.querySelector('nav');
 
 const handleScroll = () => {
@@ -11,7 +11,6 @@ const handleScroll = () => {
 
 window.addEventListener('scroll', handleScroll);
 
-// Mobile menu functionality
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 let scrollPosition = 0;
@@ -24,7 +23,7 @@ if (mobileMenuToggle && mobileMenuOverlay) {
     const isActive = mobileMenuToggle.classList.contains('active');
     console.log('Menu toggle clicked, active:', !isActive);
     if (!isActive) {
-      scrollPosition = window.scrollY; // Save current scroll position
+      scrollPosition = window.scrollY;
       document.body.classList.add('no-scroll');
       document.documentElement.classList.add('no-scroll');
       mobileMenuToggle.classList.add('active');
@@ -41,12 +40,11 @@ if (mobileMenuToggle && mobileMenuOverlay) {
         document.body.classList.remove('no-scroll');
         document.documentElement.classList.remove('no-scroll');
         mobileMenuOverlay.classList.remove('closing');
-        window.scrollTo(0, scrollPosition); // Restore scroll position
-      }, 600); // Match overlay transition (0.5s) + 0.1s buffer
+        window.scrollTo(0, scrollPosition); 
+      }, 600); 
     }
   });
 
-  // Close mobile menu when clicking on a link
   const mobileMenuLinks = document.querySelectorAll('.mobile-menu-overlay a');
   mobileMenuLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -60,8 +58,8 @@ if (mobileMenuToggle && mobileMenuOverlay) {
         document.body.classList.remove('no-scroll');
         document.documentElement.classList.remove('no-scroll');
         mobileMenuOverlay.classList.remove('closing');
-        window.scrollTo(0, scrollPosition); // Restore scroll position
-      }, 600); // Match overlay transition (0.5s) + 0.1s buffer
+        window.scrollTo(0, scrollPosition);
+      }, 600); 
     });
   });
 } else {
