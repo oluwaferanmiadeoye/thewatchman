@@ -20,7 +20,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(boss.png) no-repeat center center/cover;
+  background: url(boss.jpg) no-repeat center center/cover;
   opacity: 0.3;
   z-index: -1;
 }
@@ -73,11 +73,156 @@ h2:hover::after {
   scroll-snap-type: y mandatory;
 }
 
+/* Mobile Menu */
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  position: relative;
+  position: fixed;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #0d1b2a;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  background-color: #ffffff;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  background-color: #ffffff;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0d1b2a 0%, #c20000 100%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu-overlay.active {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.mobile-menu-overlay li {
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.mobile-menu-overlay.active li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mobile-menu-overlay.active li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mobile-menu-overlay.active li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mobile-menu-overlay.active li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.mobile-menu-overlay.active li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.mobile-menu-overlay.active li:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.mobile-menu-overlay.active li:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.mobile-menu-overlay.active li:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.mobile-menu-overlay.active li:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.mobile-menu-overlay.active li:nth-child(10) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-overlay a {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.mobile-menu-overlay a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.mobile-menu-overlay a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-overlay a:hover {
+  color: #ff3333;
+  transform: scale(1.1);
+}
+
 /* Nav bar */
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 15px 37px;
   margin: auto;
   font-size: 12px;
@@ -87,6 +232,7 @@ nav {
   background: transparent;
   margin-top: 0;
   transition: background-color 0.3s ease, padding 0.3s ease;
+  gap: 20px;
 }
 
 nav.scrolled {
@@ -307,7 +453,7 @@ a.diff {
 .marquee .marquee-content {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 25s linear infinite;
+  animation: marquee 100s linear infinite;
   row-gap: 30px;
 }
 
@@ -358,7 +504,7 @@ a.diff {
   margin-top: 20px;
   display: block;
   padding-bottom: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .conference p.conf-info {
@@ -367,6 +513,8 @@ a.diff {
   font-weight: 500;
   font-size: 1.1rem;
   margin-bottom: 50px;
+  width: 70%;
+  margin: 30px auto;
 }
 
 .conference p.one {
@@ -500,6 +648,10 @@ section.book .book-content p.book-info {
   margin-top: 30px;
 }
 
+section.book .book-content a.hard {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 section.book .book-content a.book-btn {
   background-color: #c20000;
   color: #ffffff;
@@ -510,6 +662,7 @@ section.book .book-content a.book-btn {
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all ease 0.3s;
 }
 
@@ -639,4 +792,317 @@ footer .footer-right ul li a i:hover {
   font-size: 1.1rem;
   margin-top: 70px;
   text-align: center;
+}
+
+/* Mobile Media Queries */
+
+/* Tablet and below */
+@media screen and (max-width: 1024px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav img {
+    max-height: 90px;
+  }
+
+  .showcase h2.scripture {
+    font-size: 1.8rem;
+    margin-top: -150px;
+  }
+
+  .about {
+    padding: 50px 40px;
+  }
+
+  .conference {
+    padding: 50px 40px;
+  }
+
+  section.book {
+    padding: 50px 30px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  section.book .book-content h2.book-title::after {
+    width: 300px;
+  }
+
+  section.book .book-content h2.book-title:hover::after {
+    width: 350px;
+  }
+}
+
+/* Mobile landscape and small tablets */
+@media screen and (max-width: 768px) {
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Hide desktop navigation menus */
+  nav ul.main-menu,
+  nav ul.right-menu {
+    display: none;
+  }
+
+  nav {
+    justify-content: center;
+    position: relative;
+    padding: 15px 20px;
+  }
+
+  nav img {
+    max-height: 80px;
+  }
+
+  nav.scrolled img {
+    max-height: 60px;
+  }
+
+  .showcase {
+    padding: 80px 20px 20px;
+  }
+
+  .showcase h2.scripture {
+    font-size: 1.5rem;
+    margin-top: -100px;
+    line-height: 1.6;
+  }
+
+  .showcase h4.text {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .about {
+    padding: 40px 20px;
+  }
+
+  .about .about-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about .about-column {
+    padding: 20px;
+  }
+
+  .about h2.about-text {
+    font-size: 1.8rem;
+  }
+
+  .conference {
+    padding: 40px 20px;
+  }
+
+  .conference h2.conference-text {
+    font-size: 1.8rem;
+  }
+
+  .conference p.conf-info {
+    width: 100%;
+  }
+
+  .marquee p.marquee-text {
+    font-size: 1.2rem;
+  }
+
+  section.book {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  section.book .book-content h2.book-title {
+    font-size: 1.8rem;
+  }
+
+  section.book .book-content h2.book-title::after {
+    width: 200px;
+  }
+
+  section.book .book-content h2.book-title:hover::after {
+    width: 250px;
+  }
+
+  section.book .book-image img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  footer {
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  footer .links {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  footer .footer-left {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  footer .footer-left h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+  .mobile-menu-toggle {
+    left: 15px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav img {
+    max-height: 70px;
+  }
+
+  nav.scrolled img {
+    max-height: 50px;
+  }
+
+  .showcase {
+    padding: 70px 15px 20px;
+  }
+
+  .showcase h2.scripture {
+    font-size: 1.2rem;
+    margin-top: -80px;
+  }
+
+  .showcase h2.scripture span.watch {
+    padding: 8px;
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+  .showcase h4.text {
+    font-size: 0.9rem;
+  }
+
+  .about {
+    padding: 30px 15px;
+  }
+
+  .about h2.about-text {
+    font-size: 1.5rem;
+  }
+
+  .about h3.about-subheading {
+    font-size: 1.3rem;
+  }
+
+  .about p.about-info {
+    font-size: 1rem;
+  }
+
+  .conference {
+    padding: 30px 15px;
+  }
+
+  .conference h2.conference-text {
+    font-size: 1.5rem;
+  }
+
+  .conference p.conf-info {
+    font-size: 1rem;
+  }
+
+  .conference a.btn {
+    padding: 12px 40px;
+    font-size: 0.9rem;
+  }
+
+  .marquee p.marquee-text {
+    font-size: 1rem;
+  }
+
+  section.book {
+    padding: 30px 15px;
+  }
+
+  section.book .book-content h4.coming {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  section.book .book-content h2.book-title {
+    font-size: 1.5rem;
+  }
+
+  section.book .book-content h2.book-title::after {
+    width: 150px;
+  }
+
+  section.book .book-content h2.book-title:hover::after {
+    width: 200px;
+  }
+
+  section.book .book-content p.book-info {
+    font-size: 1rem;
+  }
+
+  section.book .book-content a.book-btn {
+    padding: 10px 30px;
+    font-size: 0.9rem;
+  }
+
+  section.book .book-image img {
+    max-width: 300px;
+  }
+
+  footer {
+    padding: 30px 15px;
+  }
+
+  footer .footer-left h2 {
+    font-size: 1.5rem;
+  }
+
+  footer .footer-left p,
+  .footer-text {
+    font-size: 1rem;
+  }
+
+  footer .footer-right ul li a i {
+    font-size: 20px;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 320px) {
+  .showcase h2.scripture {
+    font-size: 1rem;
+  }
+
+  .about h2.about-text,
+  .conference h2.conference-text,
+  footer .footer-left h2 {
+    font-size: 1.3rem;
+  }
+
+  section.book .book-content h2.book-title {
+    font-size: 1.3rem;
+  }
+
+  section.book .book-image img {
+    max-width: 250px;
+  }
 }
