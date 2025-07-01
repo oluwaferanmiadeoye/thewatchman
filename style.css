@@ -188,7 +188,7 @@ h2:hover::after {
 
 .mobile-menu-overlay a {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
